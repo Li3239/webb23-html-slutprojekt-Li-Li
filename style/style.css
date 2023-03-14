@@ -73,13 +73,85 @@ header {
     width: 100vw;
     display: flex;
     justify-content: space-evenly;
-    background-color: var(--header-footer-bkg-color);
+    background-color: var(--secondary_bkg_color);
     color: var(--sub-color);
 }
 
 header p {
     margin: 0.5rem auto 0.5rem auto;
 }
+
+#app {
+    width: 64px;
+    height: 64px;
+    position: fixed;
+    bottom: 0rem;
+    right: 0rem;
+    border-radius: 50%;
+    transform: translate(-30%, -50%);
+    margin: 0;
+    z-index: 100;
+    overflow: hidden;
+    /* animation: change 2.4s infinite linear; */
+}
+
+#app::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #399953;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    /* background-position: 0 0, 100% 0, 100% 100%, 0 100%; */
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+    animation: rotate 5s linear infinite;
+    /* animation: rotate 5s linear infinite, change 2.4s linear infinite; */
+}
+
+#app::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 8px;
+    top: 8px;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    background: white;
+    border-radius: 5px;
+    /* animation: change 2.4s infinite linear; */
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+/* shift style: square-->circle */
+@keyframes change {
+
+    0%,
+    25% {
+        border-radius: 0;
+    }
+
+    35%,
+    75% {
+        border-radius: 50%;
+    }
+
+    85%,
+    100% {
+        border-radius: 0;
+    }
+}
+
+
 
 /* link hover animation */
 a.link-animation:hover {
@@ -158,6 +230,33 @@ a.link-animation:hover {
     min-height: 70px;
     justify-content: space-between;
     align-items: center;
+}
+
+/* set homepage Logo before Name in Navigation bar */
+.navbar-brand::before {
+    content: url(../favicon/favicon-32x32.png);
+    padding: 5px;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* animation for homepage Logo&Name in Navigation bar */
+.navbar-brand:hover {
+    animation: myAnimationTitle 2s infinite;
+}
+
+@keyframes myAnimationTitle {
+    0% {
+        transform: scale(1.0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1.0);
+    }
 }
 
 /**********************************
@@ -315,6 +414,24 @@ a.link-animation:hover {
     margin-top: 2rem;
 }
 
+/* [About me] page, left part */
+.main-left {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary_bkg_color);
+    box-shadow: var(--main-box-shadow);
+}
+
+/* [About me] page, right part */
+.main-right {
+    width: 60%;
+    height: 100%;
+    background-color: var(--primary_bkg_color);
+    box-shadow: var(--main-box-shadow);
+}
+
 .project-title-ios::after, .project-title-android::after {
     vertical-align: middle;
     justify-content: center;
@@ -329,6 +446,10 @@ a.link-animation:hover {
 }
 
 .project-title-android::after {
+    content: url(../image/android32.png);
+}
+
+.project-title-ios-android::after {
     content: url(../image/ios32.png) url(../image/android32.png);
 }
 
@@ -372,23 +493,6 @@ a.link-animation:hover {
     display: flex;
     flex-direction: column;
     background-color: var(--primary_bkg_color);
-}
-/* [About me] page, left part */
-.main-left {
-    width: 25%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--primary_bkg_color);
-    box-shadow: var(--main-box-shadow);
-}
-
-/* [About me] page, right part */
-.main-right {
-    width: 60%;
-    height: 100%;
-    background-color: var(--primary_bkg_color);
-    box-shadow: var(--main-box-shadow);
 }
 
 .personal-img {
@@ -548,6 +652,7 @@ td.desc {
     width: 60vw;
     height: 80vh;
     justify-content: center;
+    margin: auto;
 }
 
 .grid-block {
@@ -745,18 +850,32 @@ h2 {
 }
 /* iPad mini, iPad(H:1024) */
 @media only screen and (max-width:1024px) {
-    
+    .main-left {
+        width: 40%;
+    }
+
+    .main-right {
+        width: 60%;
+    }
 }
 @media only screen and (max-width:1280px) {
     
 }
 /* iPhone8(H:667), iPhone8 Plus(H:736), iPad mini,iPad(V:768)  */
 @media only screen and (max-width:768px) {
-    
+
 }
 
 /* iPhoneSE(H:568)*/
-@media only screen and (width>414px) and (width<=576px) {
+@media only screen  and (width<=568px) {
+    .main-down {
+        width: 100%;
+        flex-direction: column;
+    }
+    .main-left, .main-right {
+        width: 100%;
+    }
+
     /* .hamburger {
         display: block;
     }
@@ -852,6 +971,10 @@ h2 {
         filter: brightness(90%);
     }
 
+    /* ABOUT ME page backgroud */
+    .cv-intro, .cv-part {
+        background-color: var(--secondary_bkg_color);
+    }
 
 }
 
