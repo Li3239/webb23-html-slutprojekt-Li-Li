@@ -1,0 +1,857 @@
+/* define global variables */
+:root {
+    /* background color */
+    --header-footer-bkg-color: rgb(234, 200, 220);
+    /* About myself desc block */
+    --tertiary_bkg_color: white;
+    /* navigation bar, dropdownlist, about me page */
+    --primary_bkg_color: rgb(234, 231, 231);
+    /* about me main block */
+    --secondary_bkg_color: #e4dfdf;
+    /* for dark mode */
+    --dark_mode_black: #000000;
+
+    /* color */
+    --main-color: black;
+    --sub-color: white;
+    /* --dark-color: gray; */
+
+    /* link hover color */
+    --link-hover-color: rgb(232, 23, 89);
+
+    /* font */
+    --main-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --welcome-font-family: cursive;
+    --sub-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        
+    /* box shadow setting for all need in site*/
+    --main-box-shadow: 2px 2px 10px 1px rgb(124, 120, 120);
+
+    /* padding */
+    --column-space: 1vw;
+    --row-space: 5vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* body setting for each page of projects */
+body {
+    /* background: linear-gradient(360deg, #e99c93 0%, #ecdde3 60%); */
+    background: transparent url("../image/body_bk_ground_wall.jpg");
+}
+
+/* body setting for Page "Home" & Projects */
+#home-body, #contact-body {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#home-body::before, #contact-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 260vh;
+    background: transparent url('../image/body_bk_ground_sky.jpg') no-repeat center center;
+    filter: blur(5px);
+    /*图片置于最后端*/
+    z-index: -1;
+    /*图片不论大小全屏铺开*/
+    background-size: cover;
+}
+
+#contact-body::before {
+    height: 100%;
+}
+
+header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--header-footer-bkg-color);
+    color: var(--sub-color);
+}
+
+header p {
+    margin: 0.5rem auto 0.5rem auto;
+}
+
+/* link hover animation */
+a.link-animation:hover {
+    animation: myAnimation 2s infinite;
+}
+
+@keyframes myAnimation {
+    0% {
+        color: red;
+        transform: scale(1.0) rotateY(60deg);
+    }
+    
+    50% {
+        color: yellow;
+        transform: scale(1.2) rotateY(300deg);
+    }
+    
+    100% {
+        color: green;
+        transform: scale(1.0) rotateY(360deg);
+    }
+}
+
+/* About me main block */
+.bk-color-dark {
+    background-color: var(--secondary_bkg_color);
+}
+
+/* set icon size in header navigation area */
+#icon_header {
+    width: 16px;
+    height: 16px;
+}
+
+/**********************************
+*  navigation
+***********************************/
+.hamburger {
+    /* width: 150px; */
+    /* height: 150px; */
+    /* background-image: url("../icon/menu-150.png"); */
+    /* background-repeat: no-repeat; */
+    /* background-size: fit; */
+    /* background-position: center center; */
+    display: none;
+    cursor: pointer;
+}
+
+/* Hambuger three lines */
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.navbar-dropdownlist {
+    background-color: var(--primary_bkg_color);
+    /* box-shadow: var(--main-box-shadow); */
+}
+
+.navbar {
+    width: 100vw;
+    display: flex;
+    /* height: 10vh; */
+    /* position: sticky; */
+    background-color: var(--primary_bkg_color);
+    box-shadow: var(--main-box-shadow);
+    /* margin-bottom: 5vh; */
+    /* padding-bottom: 5vh; */
+
+    /* 来自例子 */
+    min-height: 70px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/**********************************
+* style for nav in all pages
+***********************************/
+.nav-menu {
+    /* width: 100%; */
+    height: 15vh;
+    list-style-type: none;
+    margin: 0px;
+    /* to be a flexbox*/
+    display: flex;
+    flex-direction: row;
+    /* set flexbox child element horizontal center*/
+    align-items: center;
+
+    /* 来自例子 */
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 60px; */
+}
+
+.nav-item {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: inline;
+}
+
+.nav-link {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: var(--main-color);
+    display: inline;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+    /* transition: 0.5s ease; */
+    transition: 0.3s ease-out;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+#active {
+    text-decoration: underline;
+    text-decoration-thickness: 0.2rem;
+}
+
+/**********************************
+*  style for list
+***********************************/
+/* body style in all pages */
+.body-flex-box {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/**********************************
+*  main style in "Home" page  --abandoned!!!
+***********************************/
+.main-block-grid {
+    width: 100vw;
+    height: auto;
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    /* auto wrap */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* grid-template-columns: 30% 30% 30%; */
+    /* grid-template-rows: 30% 30%; */
+    row-gap: var(--row-space);
+    column-gap: var(--column-space);
+    padding: var(--row-space) var(--column-space);
+}
+
+/* Page Home intro block(table) */
+.intro-table {
+    width: 100vw;
+    height: 80vh;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 45vh;
+    object-fit: contain;
+}
+
+.card-block {
+    padding: 1rem;
+}
+
+.gallery {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    vertical-align: middle;
+    align-items: center;
+    padding-top: var(--row-space);
+    /* border: 1px solid rgb(28, 28, 28); */
+    box-shadow: var(--main-box-shadow);
+    overflow: hidden;
+}
+
+.gallery img {
+    width: 90%;
+    height: 60%;
+    /* object-fit: cover; */
+    object-fit: contain;
+}
+
+.gallery:hover {
+    background-color: var(--product-hover-background-color);
+    transform: scale(1.1);
+    transition: all 1s ease 0s;
+}
+
+.gallery p {
+    width: 100%;
+    height: 20%;
+}
+
+.project-title {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/**********************************
+*  main style in "About Me" page
+***********************************/
+.main-block-flex {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--row-space) var(--column-space);
+}
+
+.main-down {
+    width: 90vw;
+    /* height: auto; */
+    column-gap: var(--column-space);
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+.project-title-ios::after, .project-title-android::after {
+    vertical-align: middle;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin: auto;
+}
+
+.project-title-ios::after {
+    content: url(../image/ios32.png);
+
+}
+
+.project-title-android::after {
+    content: url(../image/ios32.png) url(../image/android32.png);
+}
+
+/**********************************
+*  Carousel
+***********************************/
+.carousel,.carousel-inner {
+    width: 80%;
+    /* sets carousel in middle */
+    margin: auto; 
+}
+
+.carousel-inner-video {
+    width: 90%;
+    /* sets carousel in middle */
+    margin: auto;
+}
+
+/* change carousel Previous arrow  <-- style(fold) */
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+/* change carousel Next arrow --> style(fold) */
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+/* invert color for carousel Previous, Next arrow & under lines
+    easier to see those buttons for bright background */
+.carousel-control-next, .carousel-control-prev, .carousel-indicators {
+    filter: invert(100%);
+}
+
+/**********************************
+*  [About me] page
+***********************************/
+.project-desc {
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary_bkg_color);
+}
+/* [About me] page, left part */
+.main-left {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary_bkg_color);
+    box-shadow: var(--main-box-shadow);
+}
+
+/* [About me] page, right part */
+.main-right {
+    width: 60%;
+    height: 100%;
+    background-color: var(--primary_bkg_color);
+    box-shadow: var(--main-box-shadow);
+}
+
+.personal-img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* personal image */
+.img_square {
+    width: 150px;
+    height: auto;
+    justify-content: center;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.personal-detail {
+    width: 85%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 5%;
+}
+
+table {
+    width: 100%;
+    margin: 1rem;
+}
+
+table tr {
+    width: 100%;
+    height: auto;
+}
+
+td.title {
+    width: 30%;
+    height: 50px;
+    font-family: var(--sub-font-family);
+    font-size: small;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(148, 146, 146);
+}
+
+td.desc {
+    width: 50%;
+    height: auto;
+    font-family: var(--sub-font-family);
+    font-size: small;
+    border-bottom: 1px solid rgb(148, 146, 146);
+}
+
+/**********************************
+*  style for footer area in all pages
+***********************************/
+.footer {
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--dark_mode_black);
+    border: 1px solid lightgray;
+}
+
+.footer-left {
+    height: 100%;
+    /* to center image in the father element*/
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid lightgray;
+}
+
+.footer-right {
+    height: 100%;
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+.tele-and-email,
+.social-contact {
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+
+.social-contact {
+    border-top: 1px solid lightgray;
+}
+
+.tele-block {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    border-right: 1px solid lightgray;
+}
+
+.email-block {
+    width: 50%;
+    height: 100%;
+    display: flex;
+}
+
+.social-block {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.img-block,
+.social-img-block {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* set specific width for img block in social block */
+.social-img-block {
+    width: 15%;
+}
+
+.tele-detail,
+.email-detail {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.social-detail {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.detail-head,
+.detail-detail {
+    width: auto;
+    height: auto;
+}
+
+/**********************************
+*  style for CONTACT US page
+***********************************/
+.contact-table {
+    width: 60vw;
+    height: 80vh;
+    justify-content: center;
+}
+
+.grid-block {
+    width: 100%;
+    height: 80%;
+    padding-top: 4rem;
+    /* display: grid; */
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    width: 80%;
+    height: 70%;
+    /* set div center horizontally
+    top,bottom: 10px;
+    left,right: automatic justify*/
+    margin: 10px auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 40% 55%;
+    grid-template-rows: 20% 40% 20%;
+    gap: 1rem;
+    padding: 10px;
+    box-shadow: var(--main-box-shadow);
+}
+
+.grid-item {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-img {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    background-size: cover;
+}
+
+/* contact image */
+.grid-item:nth-child(1) {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+}
+
+/* Call & Email */
+.grid-item:nth-child(2) {
+    grid-row-start: 3;
+    grid-column-start: 1;
+}
+
+/* "Contact us" title */
+.grid-item:nth-child(3) {
+    grid-row-start: 1;
+    grid-column-start: 2;
+}
+
+/* "Form-Name-label" label */
+.grid-item:nth-child(4) {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+}
+
+.flex-box-form {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-box-form div,
+.flex-textarea {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    text-align: end;
+    margin: 0.5rem;
+    padding: 0.3rem;
+}
+
+.grid-item>div {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.flex-box-form div label,
+.flex-textarea label {
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    justify-content: end;
+    align-items: center;
+    margin: 0.6rem;
+}
+
+.flex-box-form div input,
+.flex-textarea textarea {
+    width: 100%;
+    height: 100%;
+    flex-grow: 2;
+    justify-content: left;
+    align-items: center;
+}
+
+
+#submit {
+    width: 30%;
+    align-items: center;
+    font-weight: bold;
+    font-size: medium;
+    color: rgb(243, 239, 239);
+    background-color: rgb(3, 120, 14);
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    margin-top: 0.6rem;
+}
+
+/**********************************
+*  style for image & icon
+***********************************/
+
+/* botter icon */
+.image-icon {
+    width: 23px;
+    height: 24px;
+    margin: 1rem;
+}
+
+/**********************************
+*  style for font,size etc
+***********************************/
+h3 {
+    /* color: purple; */
+    font-family: var(--sub-font-family);
+    padding: var(--row-space) var(--column-space);
+}
+
+h2 {
+    color: rgb(9, 33, 128);
+    font-family: var(--sub-font-family);
+}
+
+.cv {
+    margin: 0;
+    padding: 0.3rem;
+    line-height: 180%;
+}
+
+.cv>h3 {
+    justify-content: center;
+}
+
+.cv-intro {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    background: right/contain content-box border-box  var(--tertiary_bkg_color);
+}
+
+.cv-part {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    background: right/contain content-box border-box no-repeat url('../icon/seedling-24.png') var(--tertiary_bkg_color);
+    background-size: 36px 36px;
+}
+
+
+.cv-part>h2,
+.cv-part>p {
+    margin: 0.2rem;
+    font-size: small;
+}
+
+
+/**********************************
+*  Responsive design
+* 480px,768px,1024px,1280px
+* H : horizonal
+* V : vertical
+* @media (width>=400px)
+***********************************/
+/* iPad pro10.5(H:1112) */
+@media only screen and (max-width:1280px) {
+    
+}
+/* iPad mini, iPad(H:1024) */
+@media only screen and (max-width:1024px) {
+    
+}
+@media only screen and (max-width:1280px) {
+    
+}
+/* iPhone8(H:667), iPhone8 Plus(H:736), iPad mini,iPad(V:768)  */
+@media only screen and (max-width:768px) {
+    
+}
+
+/* iPhoneSE(H:568)*/
+@media only screen and (width>414px) and (width<=576px) {
+    /* .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #262626;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    } */
+
+
+    /* .footer-left {
+        width: 100vw;
+    }
+
+    .footer-right {
+        width: 100vw;
+    } */
+    
+}
+/* iPhoneSE(V:320), iPhone8(V:375), iPhone8 Plus(V:414) */
+@media only screen and (max-width:414px) {
+    
+}
+
+
+/**********************************
+*  Dark mode
+***********************************/
+@media (prefers-color-scheme:dark) {
+    /* h3::before {
+        content: "Dark Mode";
+        filter: invert(0.75);
+    } */
+
+    header p {
+        filter: invert(0.3);
+    }
+    
+    /* set navigation background color to black*/
+    .navbar, .dropdown, footer {
+        background-color: var(--dark_mode_black);
+    }
+    
+    /* invert navigation link texter color */
+    .navbar a {
+        filter: invert(0.75);
+    }
+
+    /* full stack developer button, card buttons(Read more detail) */
+    .intro-table a, .card-block a {
+        filter: invert(0.78);
+    }
+
+    /* invert description texter color */
+    h3, article p {
+        filter: invert(0.3);
+    }
+    
+    /* reduce brightness for card in Projects page*/
+    .card {
+        filter: brightness(90%);
+    }
+
+    /* carousel in each project page */
+    #myCarousel {
+        filter: brightness(90%);
+    }
+
+
+}
+

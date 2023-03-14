@@ -1,0 +1,240 @@
+<!-- HTML5 doctype -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- Bootstrap framwork -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap responsive disign - mobile first -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap icon -->
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+
+    <!-- favicon setting -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <title>LiLi's Profile</title>
+</head>
+
+<body>
+    <!-- Scrollspy setting: data-bs-spy="scroll" data-bs-target="#navbar-home" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0" -->
+    <div class="body-flex-box" data-bs-spy="scroll" data-bs-target="#navbar-home" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+        <!-- Header -->
+        <header>
+            <div class="row" style="width: 100%;">
+                <p class="col-md-6 col-sm-12 text-center"><a class="link-animation" href="tel:+76 033 56 96">Tel:(+46)76 033 56 96</a></p>
+                <p class="col-md-6 col-sm-12 text-center"><a class="link-animation" href="mailto:palmlearnli@gmail.com">Email:palmlearnli@gmail.com</a></p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav id="navbar-home" class="navbar py-0 navbar-expand-lg bg-body-tertiary">
+            <!-- px-5: padding on both left and right (0-5) -->
+            <div class="container-fluid px-5">
+                <a class="navbar-brand fw-bold text-decoration-underline" href="../index.html">Li Li'S PROFILE</a>
+                <!-- Hambuger menu -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">HOME</a>
+                    </li>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="./index.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                PROJECTS
+                            </a>
+                            <ul class="dropdown-menu navbar-dropdownlist">
+                                <li><a class="dropdown-item" href="../index.html">ALL PROJECTS</a></li>
+                                <li><a class="dropdown-item" href="../html/drivinglicences.html">TA KÖRKORT</a></li>
+                                <li><a class="dropdown-item" href="../html/swedishverb.html">SWEDISH VERB 1000</a></li>
+                                <li><a class="dropdown-item" href="../html/loppis.html">LOPPIS</a></li>
+                                <li><a class="dropdown-item" href="../html/tictactoe.html">TIC TAC TOE</a></li>
+                                <li><a class="dropdown-item" href="../html/Lego.html">LECOG</a></li>
+                                <li><a class="dropdown-item" href="../html/game.html">GAME</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../html/aboutme.html">ABOUT ME</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main block  -->
+        <main class="main-block-flex bk-color-dark">
+            <div class="main-down">
+                <div class="main-left">
+                    <div class="personal-img">
+                        <img class="rounded-circle img_square" src="../image/me.jpg" alt="personal photo" width="50%" height="50%">
+                    </div>
+                    <div class="personal-detail">
+                        <!-- Table -->
+                        <table>
+                            <tr>
+                                <td class="title">NAME</td>
+                                <td class="desc">LI LI</td>
+                            </tr>
+                            <tr>
+                                <td class="title">LOCATION</td>
+                                <td class="desc">MALMO SWEDEN</td>
+                            </tr>
+                            <tr>
+                                <td class="title">EXPERIENCE</td>
+                                <td class="desc">13 YEAR</td>
+                            </tr>
+                            <tr>
+                                <td class="title">DEGREE</td>
+                                <td class="desc">BS</td>
+                            </tr>
+                            <tr>
+                                <td class="title">PHONE</td>
+                                <td class="desc">(46)760 33 56 96</td>
+                            </tr>
+                            <tr>
+                                <td class="title">FAX</td>
+                                <td class="desc">(46)10 574 66 88</td>
+                            </tr>
+                            <tr>
+                                <td class="title">EMAIL</td>
+                                <td class="desc">palmlearnli@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td class="title">WEBSITE</td>
+                                <td class="desc">https://www.findme.com</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="main-right">
+                    <!-- About myself -->
+                    <article class="cv">
+                        <h3>About myself</h3>
+                        <article class="cv-intro">
+                            <p>Jag har studerat datavetenskap i
+                                4 år i North University of China. Från 2017 läste jag kursen Avancerad Programmering iPhone
+                                och Android på Malmö Yrkeshögskolan och tog examen med VG intyg.</p>
+                            <p>Something else Something else Something else Something else Something else Something else Something else Something else Something else Something else Something else Something else.</p>
+                            <p>Something else Something else Something else Something else Something else Something else Something else Something else Something else Something else Something else Something else.</p>
+                            <p>Something else Something else Something else Something else Something else Something else Something else Something else Something else Something else Something else Something else.</p>
+                        </article>
+                    </article>
+
+                    <!-- Education block -->
+                    <article class="cv">
+                        <h3>Education <q><cite> Live and learn </cite></q></h3>
+                        <article class="cv-part">
+                            <h2>2023.01〜now</h2>
+                            <p>GritAcademy Yrkeshögskolan</p>
+                            <p>Webbutvecklare inriktning e-handel</p>
+                        </article>
+                        <article class="cv-part">
+                            <h2>2017.01〜2018.05</h2>
+                            <p>Malmö Yrkeshögskolan</p>
+                            <p>Advancerad Programering iOS och Android</p>
+                        </article>
+                        <article class="cv-part">
+                            <h2>1992.09〜1996.07</h2>
+                            <p>North University of China</p>
+                            <p>Computer Science</p>
+                        </article>
+                    </article>
+
+                    <!-- Working Experience -->
+                    <article class="cv">
+                        <h3>Working Experience</h3>
+                        <article class="cv-part">
+                            <h2>2004.01〜2013.03</h2>
+                            <p>Soft Giken Co., Ltd.(Tokyo Japan)</p>
+                            <p>System developer</p>
+                        </article>
+                        <article class="cv-part">
+                            <h2>2000.01〜2003.06</h2>
+                            <p>Value Creation Co., Ltd.(Tokyo Japan)</p>
+                            <p>System developer</p>
+                        </article>
+                        <article class="cv-part">
+                            <h2>1996.09〜1999.03</h2>
+                            <p>Agricultural Bank China, Shanxi Branch</p>
+                            <p>System developer</p>
+                        </article>
+                    </article>
+                </div>
+            </div>
+            <!-- <div class="space-to-footer"></div> -->
+        </main>
+
+        <!--  footer block -->
+        <footer class="text-center text-lg-start bg-light text-muted">
+            <!-- first row -->
+            <section class="container">
+                <div class="row mt-3 d-flex flex-row">
+                    <!-- phone -->
+                    <div class="col-sm-12 col-md-4">
+                        <div class="row float-start">
+                            <p class="col">
+                                <span class="material-symbols-outlined">call</span>
+                            </p>
+                            <p class="col">
+                                <a class="link-animation" href="tel:(+46)76 033 56 96">(+46)760335696</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- email -->
+                    <!-- <div class="col-sm-12 col-md-4 mx-auto"> -->
+                    <div class="col-sm-12 col-md-4">
+                        <div class="row float-start">
+                            <p class="col">
+                                <span class="material-symbols-outlined">mail</span>
+                            </p>
+                            <p class="col">
+                                <a class="link-animation" href="mailto:palmlearnli@gmail.com">palmlearnli@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Social media -->
+                    <div class="col-sm-12 col-md-4">
+                        <div class="d-flex flex-row">
+                            <a target="_blank" href="https://www.facebook.com/ami.li.9843" class="me-4 text-reset">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a target="_blank" href="https://twitter.com/Ami49105913" class="me-4 text-reset">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a target="_blank" href="https://www.linkedin.com/in/li-li-46568a7b/" class="me-4 text-reset">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- second row -->
+            <section class="text-center p-3 border-top" style="background-color: rgba(0, 0, 0, 0.05);">
+                <!-- <section class="text-center p-4"> -->
+                ©2023 Li Li. All Rights Reserved.
+            </section>
+        </footer>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
