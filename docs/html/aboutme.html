@@ -58,8 +58,8 @@
                                 <li><a class="dropdown-item" href="../html/drivinglicences.html">TA KÖRKORT</a></li>
                                 <li><a class="dropdown-item" href="../html/swedishverb.html">SWEDISH VERB 1000</a></li>
                                 <li><a class="dropdown-item" href="../html/loppis.html">LOPPIS</a></li>
-                                <li><a class="dropdown-item" href="../html/tictactoe.html">TIC TAC TOE</a></li>
-                                <li><a class="dropdown-item" href="../html/Lego.html">LECOG</a></li>
+                                <!-- <li><a class="dropdown-item" href="../html/tictactoe.html">TIC TAC TOE</a></li> -->
+                                <!-- <li><a class="dropdown-item" href="../html/Lego.html">LECOG</a></li> -->
                                 <li><a class="dropdown-item" href="../html/game.html">GAME</a></li>
                             </ul>
                         </li>
@@ -76,7 +76,11 @@
             <div class="main-down">
                 <div class="main-left">
                     <div class="personal-img">
-                        <img class="rounded-circle img_square" src="../image/me.jpg" alt="personal photo" width="50%" height="50%">
+                        <picture>
+                            <source srcset="../image/me_568.jpg" media="(max-width: 568px)">
+                            <source srcset="../image/me_800.jpg" media="(max-width: 800px)">
+                            <img class="rounded-circle img_square" src="../image/me.jpg" alt="personal photo" width="50%" height="50%">
+                        </picture>
                     </div>
                     <div class="personal-detail">
                         <!-- Table -->
@@ -228,11 +232,6 @@
             </section>
         </footer>
     </div>
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

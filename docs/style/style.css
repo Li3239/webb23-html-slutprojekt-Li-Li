@@ -13,8 +13,8 @@
 
     /* color */
     --main-color: black;
-    --sub-color: white;
     /* --dark-color: gray; */
+    --sub-color: white;
 
     /* link hover color */
     --link-hover-color: rgb(232, 23, 89);
@@ -45,8 +45,9 @@ body {
 
 /* body setting for Page "Home" & Projects */
 #home-body, #contact-body {
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
+    background: transparent url('../image/body_bk_ground_sky.jpg') no-repeat center center;
     text-align: center;
 }
 
@@ -56,8 +57,9 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 260vh;
-    background: transparent url('../image/body_bk_ground_sky.jpg') no-repeat center center;
+    height: auto;
+    /* background: transparent url('../image/body_bk_ground_sky.jpg') no-repeat center center; */
+    background: transparent url('../image/body_bk_ground_sky.jpg');
     filter: blur(5px);
     /*图片置于最后端*/
     z-index: -1;
@@ -77,88 +79,51 @@ header {
     color: var(--sub-color);
 }
 
+/* ajust <p>original bottom padding value which is set in Bootstrap */
 header p {
     margin: 0.5rem auto 0.5rem auto;
 }
 
-#app {
+/*****************************
+** round ring question
+******************************/
+.container-contact {
     width: 64px;
     height: 64px;
     position: fixed;
-    bottom: 0rem;
-    right: 0rem;
+    bottom: 1vh;
+    right: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary_bkg_color);
+    border: 2px solid var(--secondary_bkg_color);
+    transform: translate(-50%, -50%);
     border-radius: 50%;
-    transform: translate(-30%, -50%);
-    margin: 0;
-    z-index: 100;
     overflow: hidden;
-    /* animation: change 2.4s infinite linear; */
+    animation: myAnimationRing 4s infinite;
 }
 
-#app::before {
-    content: '';
-    position: absolute;
-    z-index: -2;
-    left: -50%;
-    top: -50%;
-    width: 200%;
-    height: 200%;
-    background-color: #399953;
-    background-repeat: no-repeat;
-    background-size: 50% 50%, 50% 50%;
-    /* background-position: 0 0, 100% 0, 100% 100%, 0 100%; */
-    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
-    animation: rotate 5s linear infinite;
-    /* animation: rotate 5s linear infinite, change 2.4s linear infinite; */
-}
+@keyframes myAnimationRing {
+    0% {
+        transform: scale(1.0);
+    }
 
-#app::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    left: 8px;
-    top: 8px;
-    width: calc(100% - 16px);
-    height: calc(100% - 16px);
-    background: white;
-    border-radius: 5px;
-    /* animation: change 2.4s infinite linear; */
-}
+    50% {
+        transform: scale(1.2);
+    }
 
-@keyframes rotate {
     100% {
-        transform: rotate(1turn);
+        transform: scale(1.0);
     }
 }
-
-/* shift style: square-->circle */
-@keyframes change {
-
-    0%,
-    25% {
-        border-radius: 0;
-    }
-
-    35%,
-    75% {
-        border-radius: 50%;
-    }
-
-    85%,
-    100% {
-        border-radius: 0;
-    }
-}
-
-
 
 /* link hover animation */
 a.link-animation:hover {
-    animation: myAnimation 2s infinite;
+    animation: myAnimationLink 2s infinite;
 }
 
-@keyframes myAnimation {
+@keyframes myAnimationLink {
     0% {
         color: red;
         transform: scale(1.0) rotateY(60deg);
@@ -189,17 +154,6 @@ a.link-animation:hover {
 /**********************************
 *  navigation
 ***********************************/
-.hamburger {
-    /* width: 150px; */
-    /* height: 150px; */
-    /* background-image: url("../icon/menu-150.png"); */
-    /* background-repeat: no-repeat; */
-    /* background-size: fit; */
-    /* background-position: center center; */
-    display: none;
-    cursor: pointer;
-}
-
 /* Hambuger three lines */
 .bar {
     display: block;
@@ -219,14 +173,8 @@ a.link-animation:hover {
 .navbar {
     width: 100vw;
     display: flex;
-    /* height: 10vh; */
-    /* position: sticky; */
     background-color: var(--primary_bkg_color);
     box-shadow: var(--main-box-shadow);
-    /* margin-bottom: 5vh; */
-    /* padding-bottom: 5vh; */
-
-    /* 来自例子 */
     min-height: 70px;
     justify-content: space-between;
     align-items: center;
@@ -242,10 +190,10 @@ a.link-animation:hover {
 
 /* animation for homepage Logo&Name in Navigation bar */
 .navbar-brand:hover {
-    animation: myAnimationTitle 2s infinite;
+    animation: myAnimationLogo 2s infinite;
 }
 
-@keyframes myAnimationTitle {
+@keyframes myAnimationLogo {
     0% {
         transform: scale(1.0);
     }
@@ -260,25 +208,8 @@ a.link-animation:hover {
 }
 
 /**********************************
-* style for nav in all pages
+* nav in all pages
 ***********************************/
-.nav-menu {
-    /* width: 100%; */
-    height: 15vh;
-    list-style-type: none;
-    margin: 0px;
-    /* to be a flexbox*/
-    display: flex;
-    flex-direction: row;
-    /* set flexbox child element horizontal center*/
-    align-items: center;
-
-    /* 来自例子 */
-    justify-content: space-between;
-    align-items: center;
-    /* gap: 60px; */
-}
-
 .nav-item {
     margin-left: 20px;
     margin-right: 20px;
@@ -294,7 +225,6 @@ a.link-animation:hover {
     justify-content: center;
     vertical-align: middle;
     align-items: center;
-    /* transition: 0.5s ease; */
     transition: 0.3s ease-out;
 }
 
@@ -309,7 +239,7 @@ a.link-animation:hover {
 }
 
 /**********************************
-*  style for list
+*  flex column in all pages body
 ***********************************/
 /* body style in all pages */
 .body-flex-box {
@@ -320,27 +250,13 @@ a.link-animation:hover {
 }
 
 /**********************************
-*  main style in "Home" page  --abandoned!!!
+* "Home" page
 ***********************************/
-.main-block-grid {
-    width: 100vw;
-    height: auto;
-    display: grid;
-    justify-content: space-around;
-    align-items: center;
-    /* auto wrap */
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    /* grid-template-columns: 30% 30% 30%; */
-    /* grid-template-rows: 30% 30%; */
-    row-gap: var(--row-space);
-    column-gap: var(--column-space);
-    padding: var(--row-space) var(--column-space);
-}
-
 /* Page Home intro block(table) */
 .intro-table {
     width: 100vw;
     height: 80vh;
+    color: var(--sub-color);
 }
 
 .card-img-top {
@@ -353,38 +269,6 @@ a.link-animation:hover {
     padding: 1rem;
 }
 
-.gallery {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    vertical-align: middle;
-    align-items: center;
-    padding-top: var(--row-space);
-    /* border: 1px solid rgb(28, 28, 28); */
-    box-shadow: var(--main-box-shadow);
-    overflow: hidden;
-}
-
-.gallery img {
-    width: 90%;
-    height: 60%;
-    /* object-fit: cover; */
-    object-fit: contain;
-}
-
-.gallery:hover {
-    background-color: var(--product-hover-background-color);
-    transform: scale(1.1);
-    transition: all 1s ease 0s;
-}
-
-.gallery p {
-    width: 100%;
-    height: 20%;
-}
-
 .project-title {
     width: 100%;
     height: 30%;
@@ -394,7 +278,7 @@ a.link-animation:hover {
 }
 
 /**********************************
-*  main style in "About Me" page
+*  "About Me" page
 ***********************************/
 .main-block-flex {
     width: 100%;
@@ -528,7 +412,7 @@ table {
 }
 
 table tr {
-    width: 100%;
+    width: 90%;
     height: auto;
 }
 
@@ -559,237 +443,6 @@ td.desc {
     flex-direction: row;
     background-color: var(--dark_mode_black);
     border: 1px solid lightgray;
-}
-
-.footer-left {
-    height: 100%;
-    /* to center image in the father element*/
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid lightgray;
-}
-
-.footer-right {
-    height: 100%;
-    flex-direction: column;
-    flex-grow: 2;
-}
-
-.tele-and-email,
-.social-contact {
-    width: 100%;
-    height: 50%;
-    display: flex;
-}
-
-.social-contact {
-    border-top: 1px solid lightgray;
-}
-
-.tele-block {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    border-right: 1px solid lightgray;
-}
-
-.email-block {
-    width: 50%;
-    height: 100%;
-    display: flex;
-}
-
-.social-block {
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-.img-block,
-.social-img-block {
-    width: 30%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* set specific width for img block in social block */
-.social-img-block {
-    width: 15%;
-}
-
-.tele-detail,
-.email-detail {
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.social-detail {
-    width: 85%;
-    height: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 20px;
-}
-
-.detail-head,
-.detail-detail {
-    width: auto;
-    height: auto;
-}
-
-/**********************************
-*  style for CONTACT US page
-***********************************/
-.contact-table {
-    width: 60vw;
-    height: 80vh;
-    justify-content: center;
-    margin: auto;
-}
-
-.grid-block {
-    width: 100%;
-    height: 80%;
-    padding-top: 4rem;
-    /* display: grid; */
-    justify-content: center;
-    align-items: center;
-}
-
-.grid-container {
-    width: 80%;
-    height: 70%;
-    /* set div center horizontally
-    top,bottom: 10px;
-    left,right: automatic justify*/
-    margin: 10px auto;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 40% 55%;
-    grid-template-rows: 20% 40% 20%;
-    gap: 1rem;
-    padding: 10px;
-    box-shadow: var(--main-box-shadow);
-}
-
-.grid-item {
-    width: 100%;
-    height: auto;
-    text-align: center;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-
-.grid-img {
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    background-size: cover;
-}
-
-/* contact image */
-.grid-item:nth-child(1) {
-    grid-row-start: 1;
-    grid-row-end: 3;
-    grid-column-start: 1;
-}
-
-/* Call & Email */
-.grid-item:nth-child(2) {
-    grid-row-start: 3;
-    grid-column-start: 1;
-}
-
-/* "Contact us" title */
-.grid-item:nth-child(3) {
-    grid-row-start: 1;
-    grid-column-start: 2;
-}
-
-/* "Form-Name-label" label */
-.grid-item:nth-child(4) {
-    grid-row-start: 2;
-    grid-row-end: 4;
-    grid-column-start: 2;
-}
-
-.flex-box-form {
-    width: 80%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-}
-
-.flex-box-form div,
-.flex-textarea {
-    width: 100%;
-    height: 2rem;
-    display: flex;
-    /* flex-direction: row; */
-    justify-content: center;
-    text-align: end;
-    margin: 0.5rem;
-    padding: 0.3rem;
-}
-
-.grid-item>div {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-.flex-box-form div label,
-.flex-textarea label {
-    width: 100%;
-    height: 100%;
-    flex-grow: 1;
-    justify-content: end;
-    align-items: center;
-    margin: 0.6rem;
-}
-
-.flex-box-form div input,
-.flex-textarea textarea {
-    width: 100%;
-    height: 100%;
-    flex-grow: 2;
-    justify-content: left;
-    align-items: center;
-}
-
-
-#submit {
-    width: 30%;
-    align-items: center;
-    font-weight: bold;
-    font-size: medium;
-    color: rgb(243, 239, 239);
-    background-color: rgb(3, 120, 14);
-    border: 1px solid black;
-    border-radius: 0.3rem;
-    margin-top: 0.6rem;
-}
-
-/**********************************
-*  style for image & icon
-***********************************/
-
-/* botter icon */
-.image-icon {
-    width: 23px;
-    height: 24px;
-    margin: 1rem;
 }
 
 /**********************************
@@ -829,26 +482,15 @@ h2 {
     background-size: 36px 36px;
 }
 
-
 .cv-part>h2,
 .cv-part>p {
     margin: 0.2rem;
     font-size: small;
 }
 
-
 /**********************************
 *  Responsive design
-* 480px,768px,1024px,1280px
-* H : horizonal
-* V : vertical
-* @media (width>=400px)
 ***********************************/
-/* iPad pro10.5(H:1112) */
-@media only screen and (max-width:1280px) {
-    
-}
-/* iPad mini, iPad(H:1024) */
 @media only screen and (max-width:1024px) {
     .main-left {
         width: 40%;
@@ -858,85 +500,36 @@ h2 {
         width: 60%;
     }
 }
-@media only screen and (max-width:1280px) {
-    
-}
+
 /* iPhone8(H:667), iPhone8 Plus(H:736), iPad mini,iPad(V:768)  */
-@media only screen and (max-width:768px) {
-
-}
-
-/* iPhoneSE(H:568)*/
-@media only screen  and (width<=568px) {
+@media only screen and (max-width:800px) {
     .main-down {
         width: 100%;
         flex-direction: column;
     }
-    .main-left, .main-right {
+
+    .main-left,
+    .main-right {
         width: 100%;
     }
-
-    /* .hamburger {
-        display: block;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        gap: 0;
-        flex-direction: column;
-        background-color: #262626;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-    }
-
-    .nav-item {
-        margin: 16px 0;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    } */
-
-
-    /* .footer-left {
-        width: 100vw;
-    }
-
-    .footer-right {
-        width: 100vw;
-    } */
-    
-}
-/* iPhoneSE(V:320), iPhone8(V:375), iPhone8 Plus(V:414) */
-@media only screen and (max-width:414px) {
-    
 }
 
+@media only screen  and (max-width:568px) {
+    .main-down {
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .main-left,
+        .main-right {
+            width: 100%;
+        }
+}
 
 /**********************************
 *  Dark mode
 ***********************************/
 @media (prefers-color-scheme:dark) {
-    /* h3::before {
-        content: "Dark Mode";
-        filter: invert(0.75);
-    } */
-
     header p {
         filter: invert(0.3);
     }
@@ -952,8 +545,12 @@ h2 {
     }
 
     /* full stack developer button, card buttons(Read more detail) */
-    .intro-table a, .card-block a {
+    .intro-table a, .intro-table p, .card-block a {
         filter: invert(0.78);
+    }
+
+    .intro-table p{
+        filter: invert(0.85);
     }
 
     /* invert description texter color */
@@ -976,5 +573,9 @@ h2 {
         background-color: var(--secondary_bkg_color);
     }
 
+    /* personal image in About Me page */
+    .personal-img {
+        filter: brightness(80%);
+    }
 }
 
