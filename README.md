@@ -1,8 +1,7 @@
 # My Profile Homepage
 # 
 # 
-Profil project
-Includes pages:
+## Includes pages:
 1. Main page 
 2. Project page
 3. About me page
